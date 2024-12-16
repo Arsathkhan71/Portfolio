@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
+
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .content-padding{
+            padding: 5rem;
+        }
+    </style>
+</head>
+<body class="dark:bg-[#181818]">
+    
+    <!-- Navbar -->
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:bg-[#181818] dark:border-gray-700">
+      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+          <!-- Portfolio-logo -->
+          <a href="../Home/home.html" class="flex items-center space-x-3">
+              <svg class="h-8 dark:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 12h.01"/><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M22 13a18.15 18.15 0 0 1-20 0"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+              </svg>
+              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Portfolio</span>
+          </a>
+
+          <!-- Right Part -->
+          <div class="flex items-center md:order-2">
+
+              <!-- Toggle button (Sun/Moon) -->
+              <button id="toggleDarkMode" class="px-4 py-2 rounded-full flex items-center dark:text-white">
+                  <!-- Sun Icon (Visible in Light Mode) -->
+                  <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun w-5 h-5">
+                      <circle cx="12" cy="12" r="4"/>
+                      <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+                  </svg>
+                  <!-- Moon Icon (Visible in Dark Mode) -->
+                  <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon w-5 h-5 hidden">
+                      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                  </svg>
+              </button>
+
+              <!-- Hamburger Menu (Hidden on large screens) -->
+              <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
+                  <span class="sr-only">Open main menu</span>
+                  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                  </svg>
+              </button>
+
+          </div>
+
+          <!-- Navbar Links -->
+          <div class="hidden w-full md:flex md:w-auto" id="navbar-dropdown">
+              <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                  
+                  <li>
+                      <a href="../index.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0099ff]  md:p-0 dark:text-white md:dark:hover:text-[#0099ff]  dark:hover:bg-gray-700 dark:hover:text-[#0099ff] :dark:hover:bg-transparent" >Home</a>
+                  </li>
+
+                  <li>
+                      <a href="../Projects/projects.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0099ff]  md:p-0 dark:text-white md:dark:hover:text-[#0099ff]  dark:hover:bg-gray-700 dark:hover:text-[#0099ff] :dark:hover:bg-transparent">Projects</a>
+                  </li>
+
+                  <li>
+                      <a href="../About/about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#0099ff]  md:p-0 dark:text-white md:dark:hover:text-[#0099ff]  dark:hover:bg-gray-700 dark:hover:text-[#0099ff] :dark:hover:bg-transparent">About</a>
+                  </li>
+
+                  <li>
+                      <a href="../Contact/contact.html" class="block py-2 px-3 text-[#0099ff] font-bold md:font-semibold md:text-[#0099ff] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:dark:text-[#0099ff]  " aria-current="page">Contact</a>
+                  </li>
+
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-padding mx-auto px-6 mt-6 lg:px-16 ">
+        <div class="max-w-6xl mx-auto px-1">
+          <!-- Title -->
+          <div class="text-center mb-10">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-white">Get in Touch</h2>
+            <p class="mt-2 text-lg text-gray-600 dark:text-white">I'd love to hear from you! Whether it's a project, collaboration or just a chat, feel free to drop a message below!.</p>
+          </div>
+  
+          <!-- Contact Info and Form -->
+          <div  class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            
+                <!-- Left Section: Contact Info & Social Media -->
+                <div class="lg:col-span-1 bg-white shadow-md rounded-lg p-4 md:p-6 transition-transform duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+                  
+                  <!-- Contact Information -->
+                  <div class="mb-6">
+                    <h3 class="text-2xl font-semibold text-gray-900">Contact Information</h3>
+                    <p class="mt-4 text-gray-600">I’m available via email or phone. Feel free to connect with me on social media!</p>
+      
+                    <!-- Contact Details -->
+                    <ul class="mt-6 space-y-3 text-gray-800">
+                      <li class="flex items-center">
+                        <img class="w-6 h-6" src="Company_Logos/gmail.png" alt="Gmail Icon">
+                        <span class="ml-3">mohammadarsathkhan71@gmail.com</span>
+                      </li>
+                      <li class="flex items-center">
+                        <img class="w-6 h-6" src="Company_Logos/telephone.png" alt="Phone Icon">
+                        <span class="ml-3">+91 6374586748</span>
+                      </li>
+                      <li class="flex items-center">
+                        <img class="w-6 h-6" src="Company_Logos/location-pin.png" alt="Location Icon">
+                        <span class="ml-3">Chennai, Tamil Nadu, India</span>
+                      </li>
+                    </ul>
+                  </div>
+      
+                  <!-- Social Media Links -->
+                  <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Connect With Me</h3>
+                    <div class="flex space-x-4">
+                      <a href="https://www.linkedin.com/in/yourprofile" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 transform hover:scale-105">
+                        <img class="w-6 h-6" src="Company_Logos/linkedin.png" alt="LinkedIn Icon">
+                      </a>
+                      <a href="https://github.com/yourusername" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 transform hover:scale-105">
+                        <img class="w-6 h-6" src="Company_Logos/github-sign.png" alt="GitHub Icon">
+                      </a>
+                      <a href="https://twitter.com/yourusername" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300 transform hover:scale-105">
+                        <img class="w-[25px] h-[25px]" src="Company_Logos/instagram (1).png" alt="Instagram Icon">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+           
+            
+                <!-- Right Section: Contact Form -->
+                <div class="lg:col-span-2 bg-white shadow-md rounded-lg p-6 transition-transform duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+                  <h3 class="text-2xl font-semibold text-gray-900">Send a Message</h3>
+                  <form action="#" method="POST" class="mt-4 space-y-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div>
+                        <label for="name" class="block text-xs font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 p-1.5 border border-gray-300 rounded-md w-full text-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 hover:shadow-md transition-shadow duration-300" placeholder="Your Name">
+                      </div>
+                      <div>
+                        <label for="email" class="block text-xs font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 p-1.5 border border-gray-300 rounded-md w-full text-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 hover:shadow-md transition-shadow duration-300" placeholder="your.email@example.com">
+                      </div>
+                    </div>
+                    <div>
+                      <label for="subject" class="block text-xs font-medium text-gray-700">Subject</label>
+                      <input type="text" id="subject" name="subject" class="mt-1 p-1.5 border border-gray-300 rounded-md w-full text-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 hover:shadow-md transition-shadow duration-300" placeholder="Subject">
+                    </div>
+                    <div>
+                      <label for="message" class="block text-xs font-medium text-gray-700">Message</label>
+                      <textarea id="message" name="message" rows="3" class="mt-1 p-1.5 border border-gray-300 rounded-md w-full text-sm placeholder-gray-400 focus:ring-indigo-500 focus:border-indigo-500 hover:shadow-md transition-shadow duration-300" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="text-right">
+                      <button type="submit" class="px-5 py-2 bg-indigo-500 text-white font-medium rounded-md text-sm hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-50 transition duration-300">Send Message</button>
+                    </div>
+                  </form>
+                </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-gray-900 text-gray-300 py-2">
+        <div class="container mx-auto text-center">
+          <p class="text-sm">© 2024 Arsath Khan A · All rights reserved.</p>
+        </div>
+      </footer>
+    
+
+
+    <script>
+    // Initialize Lucide icons
+
+    const toggleButton = document.getElementById('toggleDarkMode');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+
+        // On button click, toggle dark mode and switch icons
+        toggleButton.addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark'); // Toggle 'dark' class on <html>
+            
+            // Toggle icons
+            sunIcon.classList.toggle('hidden');
+            moonIcon.classList.toggle('hidden');
+        });
+
+        // On page load, apply saved dark mode preference if any
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        // Store theme in localStorage
+        toggleButton.addEventListener('click', function () {
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
